@@ -1,19 +1,21 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 // css
 import './SplashScreen.scss'
 
-const SplashScreen = () => {
+const SplashScreen = props => {
+  // receive props from App.js (parent) in this case the callBackSplash method
+  const handleOnClick = () => {
+    props.callBackSplash(false); // pass value 'false' up to App.js (parent) through the callBackSplash method
+  };
+
   return (
-    <section className="splash-body">
-      <header className="splash-title animated fadeIn delay-1s">Splash Screen</header>
-      {/* <p>This is the first screen the user will see when visiting the site.</p> */}
-      <NavLink exact to='/home' className="splash-cta animated fadeInDown delay-2s">
-      {/* <i class="fas fa-angle-double-down"></i> */}
-      ENTER
-      </NavLink>
-    </section>
+    <div className='splash-body'>
+     <header className="splash-title animated fadeIn delay-1s">Splash Screen</header>
+      <button className='splash-cta animated fadeInDown delay-2s' onClick={handleOnClick}>
+        Enter
+      </button>
+    </div>
   );
 };
 

@@ -1,6 +1,7 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.scss';
+import React, {Component, Fragment} from 'react';
+// import './App.scss';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import 'animate.css/animate.css'
 
@@ -9,32 +10,48 @@ import { BrowserRouter as Router } from 'react-router-dom';
 
 
 // views
-// import SplashScreen from './components/views/SplashScreen';
-import Main from './components/layout/Main';
+import SplashScreen from './components/views/SplashScreen';
 
-function App() {
-  return (
-    <Router basename={'/'}>
-      <div className='App'>
-        {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-        {/* <SplashScreen /> */}
-        <Main/>
-      </div>
-    </Router>
-  );
+// layout 
+import Footer from './components/layout/Footer'
+import Header from './components/layout/Header'
+import Main from './components/layout/Main'
+
+class App extends Component {
+  state = {
+    splash: true
+  };
+
+  callBackSplash = splash => {
+    // receives callBack value from child SplashScreen.js callBack function: props.callBackSplash(false)
+    this.setState({
+      splash: splash // set state splash value to false
+    });
+    console.log(splash);
+  };
+
+  render() {
+    const { splash } = this.state;
+    return (
+      // <Provider store={store}>
+        <Router basename={'/'}>
+          <div className='App'>
+            {splash ? (
+              <Fragment>
+                <SplashScreen callBackSplash={this.callBackSplash} />
+              </Fragment>
+            ) : (
+              <Fragment>
+                <Header />
+                  <Main />
+                <Footer />
+              </Fragment>
+            )}
+          </div>
+        </Router>
+      // </Provider>
+    );
+  }
 }
 
 export default App;

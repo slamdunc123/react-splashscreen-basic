@@ -4,17 +4,23 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 
 // views
+import About from '../views/About'
+import Contact from '../views/Contact'
 import Home from '../views/Home';
-import SplashScreen from '../views/SplashScreen';
+
+// css 
+// import './Main.scss'
 
 const Main = () => {
   return (
-    <div>
-      <Switch>
-        <Route exact path='/' component={SplashScreen} />
-        <Route exact path='/home' component={Home} />
-      </Switch>
-    </div>
+    <duv>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/about' component={About} />
+          <Route exact path='/contact' component={Contact} />
+        </Switch>
+    </duv>
+      
   );
 };
 
