@@ -1,19 +1,93 @@
-.container {
-    background: url(http://aaronfonseca.com//portfolio/lunar-calendar/img/starsBG.jpg) repeat 0px 0px;
-	animation: space 50s linear infinite;
-	    -webkit-animation: space 50s linear infinite;
-		-moz-animtion: space 50s linear infinite;
-		-o-animation: space 50s linear infinite;
+// .home-container {
+// 	animation: space 50s linear infinite;
+// 	    -webkit-animation: space 50s linear infinite;
+// 		-moz-animtion: space 50s linear infinite;
+// 		-o-animation: space 50s linear infinite;
+//     background: url(http://aaronfonseca.com//portfolio/lunar-calendar/img/starsBG.jpg) repeat 0px 0px;
+//     height: 100vh;
+// }
+
+// @keyframes space
+// {
+//   from{background-position: 0px 0px;}
+//   to{background-position: -600px 0px;}
+// }
+//   @-webkit-keyframes space
+// {
+//   from{background-position: 0px 0px;}
+//   to{background-position: -600px 0px;}
+// }
+
+.home-container {
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: 768px) {
+		flex-direction: row;
+	}
 }
 
-@keyframes space
-{
-  from{background-position: 0px 0px;}
-  to{background-position: -600px 0px;}
-}
-  @-webkit-keyframes space
-{
-  from{background-position: 0px 0px;}
-  to{background-position: -600px 0px;}
+.home-article {
+	border: 1px dotted red;
+	display: flex;
+	flex-direction: column;
+
+	&__heading {
+		display: flex;
+		justify-content: center;
+		flex: 1;
+		margin: 10px 0;
+	}
+
+	&__body {
+		display: flex;
+		justify-content: center;
+		flex: 6;
+		padding: 0 10px;
+	}
 }
 
+#home-article__one {
+	background-color: lightblue;
+	color: #fff;
+
+	@media (min-width: 768px) {
+		flex: 1;
+	}
+}
+
+#home-article__two {
+	background-color: lightgrey;
+	color: #fff;
+
+	@media (min-width: 768px) {
+		flex: 3;
+	}
+}
+
+#home-article__three {
+	background-color: lightsteelblue;
+	color: #fff;
+
+	@media (min-width: 768px) {
+		flex: 1;
+	}
+}
+
+#home-article__four {
+	background-color: lightsalmon;
+	color: #fff;
+
+	@media (min-width: 768px) {
+		flex: 2;
+	}
+}
+
+#home-article__five {
+	background-color: lightgreen;
+	color: #fff;
+
+	@media (min-width: 768px) {
+		flex: 2;
+	}
+}
